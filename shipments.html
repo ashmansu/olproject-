@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shipments - FreshTrack AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+
+    <div class="side-logo">
+        🌿 FreshTrack AI
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+
+        <a href="shipments.html" class="active">
+            🚚 Shipments
+        </a>
+
+        <a href="monitoring.html">📡 Monitoring</a>
+
+        <a href="freshness.html">🧠 AI Freshness</a>
+
+        <a href="alerts.html">⚠️ Alerts</a>
+
+        <a href="track.html">📍 Track Shipment</a>
+
+        <a href="index.html">↩ Logout</a>
+
+    </nav>
+
+</aside>
+
+
+<main class="dashboard">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Shipments</h1>
+            <p>View and manage shipments</p>
+        </div>
+
+        <a href="track.html" class="btn">
+            Track Shipment
+        </a>
+
+    </div>
+
+
+    <div class="panel">
+
+        <div class="search">
+            <input
+                type="text"
+                placeholder="🔍 Search shipment..."
+            >
+
+            <select>
+                <option>All Status</option>
+                <option>Safe</option>
+                <option>Warning</option>
+                <option>Risk</option>
+            </select>
+        </div>
+
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Destination</th>
+                    <th>Freshness</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+                    <td>FT-1024</td>
+                    <td>Apples</td>
+                    <td>Delhi</td>
+                    <td class="green">91%</td>
+                    <td>
+                        <span class="status safe">Safe</span>
+                    </td>
+                    <td>
+                        <a href="monitoring.html">View →</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>FT-1025</td>
+                    <td>Milk</td>
+                    <td>Jaipur</td>
+                    <td class="orange">74%</td>
+                    <td>
+                        <span class="status warning">Warning</span>
+                    </td>
+                    <td>
+                        <a href="monitoring.html">View →</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>FT-1026</td>
+                    <td>Strawberries</td>
+                    <td>Indore</td>
+                    <td class="red">42%</td>
+                    <td>
+                        <span class="status risk">Risk</span>
+                    </td>
+                    <td>
+                        <a href="monitoring.html">View →</a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>FT-1027</td>
+                    <td>Avocados</td>
+                    <td>Bangalore</td>
+                    <td>66%</td>
+                    <td>
+                        <span class="status warning">
+                            Warning
+                        </span>
+                    </td>
+                    <td>
+                        <a href="monitoring.html">View →</a>
+                    </td>
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+</div>
+
+</body>
+</html>

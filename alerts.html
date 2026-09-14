@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Alerts - FreshTrack AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+
+    <div class="side-logo">
+        🌿 FreshTrack AI
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+        <a href="shipments.html">🚚 Shipments</a>
+        <a href="monitoring.html">📡 Monitoring</a>
+        <a href="freshness.html">🧠 AI Freshness</a>
+
+        <a href="alerts.html" class="active">
+            ⚠️ Alerts
+        </a>
+
+        <a href="track.html">📍 Track Shipment</a>
+        <a href="index.html">↩ Logout</a>
+
+    </nav>
+
+</aside>
+
+
+<main class="dashboard">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Alerts</h1>
+            <p>Important issues and recommended actions</p>
+        </div>
+
+    </div>
+
+
+    <div class="alert-card critical">
+
+        <div>
+            <h3>🔴 FT-1027</h3>
+
+            <p>
+                High temperature detected
+            </p>
+
+            <small>
+                Temperature: 9.8°C |
+                Threshold: 8°C
+            </small>
+        </div>
+
+        <a href="monitoring.html"
+           class="btn secondary">
+            Take Action
+        </a>
+
+    </div>
+
+
+    <div class="alert-card warning-alert">
+
+        <div>
+            <h3>🟡 FT-1025</h3>
+
+            <p>
+                Freshness declining
+            </p>
+
+            <small>
+                Freshness: 74%
+            </small>
+        </div>
+
+        <a href="freshness.html"
+           class="btn secondary">
+            View
+        </a>
+
+    </div>
+
+
+    <div class="alert-card">
+
+        <div>
+            <h3>🔵 FT-1029</h3>
+
+            <p>
+                Route deviation
+            </p>
+
+            <small>
+                Vehicle is outside planned route.
+            </small>
+        </div>
+
+        <a href="track.html"
+           class="btn secondary">
+            View
+        </a>
+
+    </div>
+
+</main>
+
+</div>
+
+</body>
+</html>
