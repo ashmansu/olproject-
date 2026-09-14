@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Monitoring - FreshTrack AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+
+    <div class="side-logo">
+        🌿 FreshTrack AI
+    </div>
+
+    <nav>
+
+        <a href="dashboard.html">🏠 Dashboard</a>
+
+        <a href="shipments.html">🚚 Shipments</a>
+
+        <a href="monitoring.html" class="active">
+            📡 Monitoring
+        </a>
+
+        <a href="freshness.html">
+            🧠 AI Freshness
+        </a>
+
+        <a href="alerts.html">
+            ⚠️ Alerts
+        </a>
+
+        <a href="track.html">
+            📍 Track Shipment
+        </a>
+
+        <a href="index.html">
+            ↩ Logout
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<main class="dashboard">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Live Monitoring</h1>
+            <p>Current shipment conditions</p>
+        </div>
+
+        <select>
+            <option>FT-1024 — Apples</option>
+            <option>FT-1025 — Milk</option>
+        </select>
+
+    </div>
+
+
+    <div class="monitor-grid">
+
+        <div class="monitor-card">
+            🌡️
+            <h2>4.8°C</h2>
+            <p>Temperature</p>
+        </div>
+
+        <div class="monitor-card">
+            💧
+            <h2>72%</h2>
+            <p>Humidity</p>
+        </div>
+
+        <div class="monitor-card">
+            🌿
+            <h2 class="green">91%</h2>
+            <p>Freshness</p>
+        </div>
+
+        <div class="monitor-card">
+            🟢
+            <h2 class="green">Low</h2>
+            <p>Risk Level</p>
+        </div>
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3>Temperature Trend</h3>
+
+        <div class="simple-chart">
+
+            <div style="height:50%"></div>
+            <div style="height:65%"></div>
+            <div style="height:55%"></div>
+            <div style="height:72%"></div>
+            <div style="height:60%"></div>
+            <div style="height:68%"></div>
+            <div style="height:58%"></div>
+
+        </div>
+
+    </div>
+
+
+    <div class="recommend">
+
+        ✅ <strong>Conditions Normal</strong>
+
+        <p>
+            All monitored parameters are currently
+            within the safe range.
+        </p>
+
+    </div>
+
+</main>
+
+</div>
+
+</body>
+</html>

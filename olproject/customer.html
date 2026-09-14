@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer - FreshTrack AI</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="side-logo">
+            🌿 FreshTrack AI
+        </div>
+
+        <nav>
+            <a href="#home">🏠 Home</a>
+            <a href="#track">📍 Track Shipment</a>
+            <a href="#shipments">📦 My Shipments</a>
+            <a href="#notifications">🔔 Notifications</a>
+            <a href="#settings">⚙️ Settings</a>
+            <a href="index.html">↩ Logout</a>
+        </nav>
+
+    </aside>
+
+
+    <main class="dashboard">
+
+        <div class="page-header" id="home">
+
+            <div>
+                <h1>Welcome, Customer 👋</h1>
+                <p>Track your food shipment</p>
+            </div>
+
+            <div class="user">
+                📦 Customer
+            </div>
+
+        </div>
+
+
+        <!-- TRACK -->
+
+        <section id="track" class="dashboard-section">
+
+    <div class="section-heading">
+        <h2>Track Your Shipment</h2>
+        <p>Enter your tracking ID to check shipment status and freshness.</p>
+    </div>
+
+    <div class="tracking-box">
+
+        <div class="tracking-icon">
+            📦
+        </div>
+
+        <div class="tracking-content">
+
+            <h3>Track Shipment</h3>
+
+            <p>
+                Enter your shipment ID below to view
+                temperature, humidity, freshness and location.
+            </p>
+
+            <div class="track-search">
+
+                <input
+                    type="text"
+                    id="trackingId"
+                    placeholder="Enter Tracking ID (e.g. FT-1024)"
+                >
+
+                <button class="btn" onclick="trackShipment()">
+                    Track Shipment
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="trackingResult"></div>
+
+</section>
+
+
+        <!-- MY SHIPMENT -->
+
+       <section id="shipments" class="dashboard-section">
+    <div class="section-heading">
+        <h2>My Shipments</h2>
+        <p>View the status and condition of your active shipments.</p>
+    </div>
+
+    <div id="customerShipments"></div>
+</section>
+
+
+        <!-- NOTIFICATIONS -->
+
+        <section id="notifications" class="dashboard-section">
+    <div class="section-heading">
+        <h2>Notifications</h2>
+        <p>Important updates about your shipments.</p>
+    </div>
+
+    <div class="notifications-card">
+
+        <div class="notification">
+            <div class="notification-icon">📦</div>
+
+            <div>
+                <strong>Shipment Update</strong>
+                <p>
+                    Your Apple shipment <strong>FT-1024</strong>
+                    is currently in transit.
+                </p>
+                <small>Current location: Jaipur</small>
+            </div>
+        </div>
+
+        <div class="notification">
+            <div class="notification-icon">🌿</div>
+
+            <div>
+                <strong>Freshness Status</strong>
+                <p>
+                    Shipment <strong>FT-1024</strong> has a
+                    freshness score of <strong>91%</strong>.
+                </p>
+                <small>Condition: Good</small>
+            </div>
+        </div>
+
+        <div class="notification">
+            <div class="notification-icon">🚚</div>
+
+            <div>
+                <strong>Shipment Update</strong>
+                <p>
+                    Your Milk shipment <strong>FT-1026</strong>
+                    is currently in transit.
+                </p>
+                <small>Current location: Kota</small>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+        <!-- SETTINGS -->
+
+       <section id="settings" class="dashboard-section">
+    <div class="section-heading">
+        <h2>Settings</h2>
+        <p>Manage your notification preferences.</p>
+    </div>
+
+    <div class="settings-card">
+
+        <div class="setting-row">
+            <div>
+                <strong>Shipment Notifications</strong>
+                <p>Receive updates when your shipment status changes.</p>
+            </div>
+
+            <label class="switch">
+                <input type="checkbox" id="shipmentNotifications" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Freshness Alerts</strong>
+                <p>Receive alerts about changes in shipment freshness.</p>
+            </div>
+
+            <label class="switch">
+                <input type="checkbox" id="freshnessAlerts" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="setting-row">
+            <div>
+                <strong>Location Updates</strong>
+                <p>Receive updates about your shipment's current location.</p>
+            </div>
+
+            <label class="switch">
+                <input type="checkbox" id="locationUpdates">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+    </div>
+</section>
+
+    </main>
+
+</div>
+
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+
+function trackShipment() {
+
+    const id = document
+        .getElementById("trackingId")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const result = document.getElementById("trackingResult");
+
+    if (id === "") {
+
+        result.innerHTML = `
+            <div class="card warning-alert">
+                Please enter a shipment ID.
+            </div>
+        `;
+
+        return;
+    }
+
+    const shipment = shipments[id];
+
+    if (!shipment) {
+
+        result.innerHTML = `
+            <div class="card warning-alert">
+
+                <h3>Shipment Not Found</h3>
+
+                <p>
+                    No shipment was found with tracking ID
+                    <strong>${id}</strong>.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    result.innerHTML = `
+
+        <div class="card tracking-result">
+
+            <div class="shipment-top">
+
+                <div>
+
+                    <div class="product-icon">
+                        ${shipment.icon}
+                    </div>
+
+                    <div>
+                        <h3>${shipment.product}</h3>
+                        <p>Tracking ID: ${id}</p>
+                    </div>
+
+                </div>
+
+                <span class="status safe">
+                    ${shipment.status}
+                </span>
+
+            </div>
+
+
+            <div class="customer-info">
+
+                <div>
+                    <small>Temperature</small>
+                    <strong>${shipment.temperature}</strong>
+                </div>
+
+                <div>
+                    <small>Humidity</small>
+                    <strong>${shipment.humidity}</strong>
+                </div>
+
+                <div>
+                    <small>Freshness</small>
+                    <strong>${shipment.freshness}</strong>
+                </div>
+
+                <div>
+                    <small>Current Location</small>
+                    <strong>${shipment.location}</strong>
+                </div>
+
+            </div>
+
+
+            <div class="shipment-route">
+
+                <p>
+                    <strong>Origin:</strong>
+                    ${shipment.origin}
+                </p>
+
+                <p>
+                    <strong>Destination:</strong>
+                    ${shipment.destination}
+                </p>
+
+            </div>
+
+        </div>
+
+    `;
+}
+</script>
+
+</body>
+</html>
